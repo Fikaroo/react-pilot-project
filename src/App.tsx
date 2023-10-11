@@ -13,9 +13,6 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
-      {/* Task 1
- // TODO : Create button for upload data 
- */}
       <div className="flex items-end gap-4 py-4">
         <UploadData />
         {lenData ? <FormData isAdd={true} /> : null}

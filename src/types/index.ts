@@ -1,6 +1,6 @@
 export type Data = {
   id: number;
-  len: number;
+  len: string;
   wkt: number;
   status: number;
 };

@@ -33,7 +33,7 @@ import { Data } from "@/types";
 import { useData } from "@/state";
 
 const formSchema = z.object({
-  len: z.number().min(1),
+  len: z.string().min(1),
   status: z.string().min(1),
 });
 
@@ -50,7 +50,7 @@ const FormData = ({ isAdd, isEdit, data }: FormDataProps) => {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      len: isAdd ? 0 : isEdit ? data?.len : 0,
+      len: isAdd ? "" : isEdit ? data?.len : "",
       status: isAdd ? "" : isEdit ? data?.status.toString() : "",
     },
   });
@@ -108,7 +108,7 @@ const FormData = ({ isAdd, isEdit, data }: FormDataProps) => {
                     <Input
                       {...field}
                       type="number"
-                      onChange={(e) => field.onChange(parseInt(e.target.value))}
+                      onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
                   <FormDescription />
